@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ system[1] }} Details</title>
+</head>
+<body>
+    <h1> {{ system[1] }} </h1>
+    <img src="{{ system[2] }}" alt="{{ system[1] }}" width="100">
+    <h2>Specifications</h2>
+    <ul>
+        {% for spec in specs %}
+            <li><strong>{{spec[0}}:</strong> {{ spec[1] }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Home</a>
+
+</body>
+</html>
