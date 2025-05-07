@@ -4,17 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Systems</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='systems.css') }}">
 </head>
 <body>
-    <h1>Available Systems</h1>
-    <ul>
-        {% for system in systems %}
-            <li>
-                <a href="/system/{{ system[0] }}">{{ system[1] }}</a>
-                <img src="{{ system[2] }}" alt="{{ system[1] }}" width="100">
+
+    <header>
+        <h1>Explore Our Computer Systems</h1>
+        <p>Browse our collection of cutting-edge systems tailored for performance, efficiency, and reliability.</p>
+    </header>
+
+    <main>
+        <ul class="system-grid">
+            {% for system in systems %}
+            <li class="card">
+                <a class="system-link" href="/system/{{ system[0] }}">
+                    <img src="{{ system[2] }}" alt="{{ system[1] }}">
+                    <h2>{{ system[1] }}</h2>
+                    <p>Click to explore specs, features, and performance details.</p>
+                </a>
             </li>
-        {% endfor %}
-    </ul>
-    <a href="/">Home</a>
+            {% endfor %}
+        </ul>
+    </main>
+
+    <footer>
+        <a class="home-link" href="/">← Home</a>
+    </footer>
+
 </body>
 </html>

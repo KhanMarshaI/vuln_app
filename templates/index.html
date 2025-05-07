@@ -3,25 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecureSys - Enterprise Solutions</title>
+    <title>SecureSys - Enterprise AIO Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
-    <h1>Welcome to SecureSys!</h1>
-    <p>We provide cutting-edge systems for organizations.</p>
 
-    <h2>Featured Systems</h2>
-    <ul>
-        <li>Tron-1: High-performance workstation.</li>
-        <li>Tron-2: Portable business solution.</li>
-    </ul>
+    <header>
+        <h1>SecureSys</h1>
+        <p>SecureSys delivers cutting-edge All-In-One PC solutions engineered for modern enterprise environments. From productivity to security, our systems are built to adapt to your evolving needs.</p>
+        <nav>
+            <a href="/systems">Our Systems</a>
+            <a href="/admin">Admin Panel</a>
+            <a href="#partners">Partners</a>
+        </nav>
+    </header>
 
-    <h2>Request a Quota</h2>
-    <form method="POST" action="/">
-        <input type="text" name="email" placeholder="Enter your email">
-        <button type="submit">Subscribe</button>
-    </form>
+    <section>
+        <h2>Featured Systems</h2>
+        <ul>
+            <li><strong>Tron-1</strong>: A high-performance All-In-One workstation optimized for engineering, data analysis, and creative industries. Equipped with Ryzen 5 PRO processors, 32GB RAM, and 1TB NVMe storage.</li>
+            <li><strong>Tron-2</strong>: A mid-range, power-efficient AIO PC designed for seamless office workflows, virtual conferencing, and light development work. Comes with Intel Core i7, 16GB RAM, and 512GB SSD.</li>
+        </ul>
+    </section>
 
-    <a href="/systems">View all systems.</a> | <a href="/admin">Admin Panel</a>
+    <section>
+        <h2>Why Choose SecureSys?</h2>
+        <p>We combine hardware durability with advanced cybersecurity to give you systems that not only perform but also protect. Our All-In-One PCs reduce desk clutter, simplify deployment, and come with built-in firmware hardening features to minimize your attack surface. Enjoy minimal downtime, fast support, and scalable options tailored for enterprise environments.</p>
+    </section>
+
+    <section>
+        <h2>Request a Quote</h2>
+        <p>Looking for a tailored solution for your enterprise or institution? Drop us your email, and a SecureSys consultant will be in touch within 24 hours.</p>
+        <form method="POST" action="/">
+            <div class="form-group">
+                <input type="text" name="email" placeholder="Enter your email">
+                <button type="submit">Request</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="partners">
+        <h2>Our Trusted Partners</h2>
+        <p>SecureSys proudly collaborates with some of the leading tech innovators and security providers to ensure our systems meet global standards of quality and trust.</p>
+        <div class="partners">
+            <img src="/static/images/intel.svg.png" alt="Intel" class="partner-logo">
+            <img src="/static/images/microsoft.svg.png" alt="Microsoft" class="partner-logo">
+            <img src="/static/images/ryzen.png" alt="Ryzen" class="partner-logo">
+            <img src="/static/images/samsung.svg.png" alt="Samsung" class="partner-logo">
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 SecureSys Inc. | All Rights Reserved | Privacy Policy | Terms of Service
+    </footer>
 
 </body>
 </html>

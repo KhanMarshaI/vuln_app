@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ system[1] }} Details</title>
+    <title>{{ system[0] }} Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='system.css') }}">
 </head>
 <body>
-    <h1> {{ system[1] }} </h1>
-    <img src="{{ system[2] }}" alt="{{ system[1] }}" width="100">
-    <h2>Specifications</h2>
-    <ul>
-        {% for spec in specs %}
-            <li><strong>{{spec[0}}:</strong> {{ spec[1] }}</li>
-        {% endfor %}
-    </ul>
-    <a href="/">Home</a>
 
+    <article class="container">
+        <header class="system-header">
+            <h1>{{ system[0] }}</h1>
+            <img src="{{ system[1] }}" alt="{{ system[0] }}">
+            <p>Meet <strong>{{ system[0] }}</strong>: a modern computing solution designed for professionals, gamers, and creators.</p>
+        </header>
+
+        <section class="specs">
+            <h2>Technical Specifications</h2>
+            <ul>
+                {% for spec in specs %}
+                <li><strong>{{ spec[0] }}:</strong> {{ spec[1] }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <footer>
+            <a class="home-link" href="/">← Home</a>
+        </footer>
+    </article>
+    
 </body>
 </html>

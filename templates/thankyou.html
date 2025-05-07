@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Done</title>
+    <title>Email Recorded</title>
+    <link rel="stylesheet" href="/static/thankyou.css">
 </head>
 <body>
-    <h2>Email recorded!</h2>
-    <p>Our team will reach out at <strong>{{ email | safe }}</strong> briefly.</p>
-    <a href="/">Back to Home.</a>
+
+    <div class="confirmation-container">
+        <div class="card">
+            <h2>✅ Email Recorded!</h2>
+            <p>Thank you for reaching out. Our team will get back to you shortly at:</p>
+            <p class="highlighted-email">{{ email | safe }}</p>
+            <a class="home-link" href="/">← Home</a>
+        </div>
+    </div>
+
 </body>
 </html>

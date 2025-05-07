@@ -4,16 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/admin.css">
 </head>
 <body>
-    <h1>Admin Panel</h1>
-    <h2>Recorded Emails:</h2>
 
-    {% for email in emails %}
-        <p>{{email | safe}}</p>
-    {% endfor %}
+    <div class="admin-container">
+        <header>
+            <h1>📋 Admin Panel</h1>
+            <p class="subtitle">Monitor recorded emails below. <span class="warning">[Warning: Unfiltered content]</span></p>
+        </header>
 
-    <a href="/">Back to Home</a>
+        <section class="email-list">
+            {% if emails %}
+                {% for email in emails %}
+                    <div class="email-entry">
+                        {{ email | safe }}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-data">No emails recorded yet.</p>
+            {% endif %}
+        </section>
 
+        <footer>
+            <a class="back-link" href="/">← Back to Home</a>
+        </footer>
+    </div>
+    
 </body>
 </html>
