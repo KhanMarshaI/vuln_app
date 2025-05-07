@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Results for "{{ query }}"</h1>
+    {% if results %}
+        <ul>
+        {% for system in results %}
+            <li>
+                <a href="/system/{{ system[0] }}">{{ system[1] }}</a>
+                <img src="{{ system[2] }}" width="100">
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No systems found.</p>
+    {% endif %}
+    <a href="/search">New Search</a>
+</body>
+</html>
