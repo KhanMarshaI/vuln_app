@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='results.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <title>Search Results</title>
 </head>
 <body>
@@ -17,6 +19,6 @@
     {% else %}
         <p>No systems found.</p>
     {% endif %}
-    <a href="/search">New Search</a>
+    <a href="/">New Search</a>
 </body>
 </html>

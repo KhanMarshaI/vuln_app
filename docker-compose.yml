@@ -1,0 +1,30 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy  # Wait for db to be healthy
+    environment:
+      - DATABASE_URL=postgresql://postgres:root@db:5432/postgres
+    volumes:
+      - ./static:/app/static
+
+  db:
+    image: postgres:17
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]  # Check if PostgreSQL is ready
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s  # Allow time for initial setup
+
+volumes:
+  postgres_data:

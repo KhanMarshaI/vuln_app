@@ -1,14 +1,10 @@
 from flask import Flask, render_template, request, redirect,url_for
-import psycopg2,base64
+import psycopg2,base64,os
 
 app = Flask(__name__)
 
-conn = psycopg2.connect(
-    dbname="postgres",
-    user="postgres",
-    password="root",
-    host="localhost"
-)
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://postgres:root@localhost:5432/postgres')
+conn = psycopg2.connect(DATABASE_URL)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -54,7 +50,7 @@ def search():
         # Encode user input to "hide" it (fake security)
         encoded_term = base64.b64encode(search_term.encode()).decode()
         return redirect(url_for('search_results', q=encoded_term))
-    return render_template('search.html')
+    return redirect('/')
 
 @app.route('/search/results')
 def search_results():
@@ -71,3 +67,6 @@ def search_results():
     results = cur.fetchall()
     cur.close()
     return render_template('search_results.html', results=results, query=decoded_query)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

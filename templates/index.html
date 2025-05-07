@@ -13,9 +13,15 @@
         <h1>SecureSys</h1>
         <p>SecureSys delivers cutting-edge All-In-One PC solutions engineered for modern enterprise environments. From productivity to security, our systems are built to adapt to your evolving needs.</p>
         <nav>
-            <a href="/systems">Our Systems</a>
-            <a href="/admin">Admin Panel</a>
-            <a href="#partners">Partners</a>
+            <div class="nav-links">
+                <a href="/systems">Our Systems</a>
+                <a href="/admin">Admin Panel</a>
+                <a href="#partners">Partners</a>
+            </div>
+            <form method="POST" action="/search">
+                <input type="text" name="search_term" placeholder="Search systems">
+                <button type="submit">Search</button>
+            </form>
         </nav>
     </header>
 
