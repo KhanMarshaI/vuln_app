@@ -69,24 +69,24 @@ The application contains the following intentional vulnerabilities for education
 
 ### 1. XSS in Email Submission
 
-    ```py
-        from flask import escape
-        from bleach import clean
+```py
+    from flask import escape
+    from bleach import clean
 
-        #vulnerable function
-        email = clean(request.form['email'], tags=[], attributes={})
-        return render_template('thankyou.html', email=escape(email))
-    ```
+    #vulnerable function
+    email = clean(request.form['email'], tags=[], attributes={})
+    return render_template('thankyou.html', email=escape(email))
+```
 
-    We escape the special characters and sanitize the email input by stripping all HTML tags and attributes.
+We escape the special characters and sanitize the email input by stripping all HTML tags and attributes.
 
 ### 2. SQLi
 
-    The SQLi arises due to **String Interpolation** in SQL query. It can be patched with parameterized queries.
+The SQLi arises due to **String Interpolation** in SQL query. It can be patched with parameterized queries.
 
-    ```py
-        cur.execute("SELECT * FROM systems WHERE name LIKE %s", (f'%{decoded_query}%',))
-    ```
+```py
+    cur.execute("SELECT * FROM systems WHERE name LIKE %s", (f'%{decoded_query}%',))
+```
 
 Utilizing RegEx will also further strengthen our defenses.
 
