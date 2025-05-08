@@ -67,7 +67,7 @@ The application contains the following intentional vulnerabilities for education
 ---
 ## Patching the Vulnerabilities
 
-1. XSS in Email Submission
+### 1. XSS in Email Submission
 
     ```py
         from flask import escape
@@ -80,7 +80,8 @@ The application contains the following intentional vulnerabilities for education
 
     We escape the special characters and sanitize the email input by stripping all HTML tags and attributes.
 
-2. SQLi
+### 2. SQLi
+
     The SQLi arises due to **String Interpolation** in SQL query. It can be patched with parameterized queries.
 
     ```py
